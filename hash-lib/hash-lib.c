@@ -78,7 +78,7 @@ int string_equal(char *string_a, char *string_b) {
         }
         i++;
     }
-    if (string_a[i] == '\0' && string_b[i] == '\0');
+    if (string_a[i] == '\0' && string_b[i] == '\0')
         return 1;
     return 0;
 }
