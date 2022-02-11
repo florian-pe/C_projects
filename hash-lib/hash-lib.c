@@ -191,6 +191,7 @@ void hash_delete(HashTable *hash_table, char *key) {
     if (string_equal(ptr->key, key)) {
         hash_table->buckets[slot] = ptr->next;
         free(ptr);
+        hash_table->entries--;
     }
 
     for ( ; ptr->next != NULL ; ptr = ptr->next ) {
@@ -198,6 +199,7 @@ void hash_delete(HashTable *hash_table, char *key) {
             Entry *entry_to_delete = ptr->next;
             ptr->next = ptr->next->next;
             free(entry_to_delete);
+            hash_table->entries--;
             return;
         }
     }
